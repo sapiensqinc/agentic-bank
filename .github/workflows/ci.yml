@@ -27,14 +27,6 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      # Temporary lock resolver: review and commit its artifact before merge.
-      - run: pnpm install --lockfile-only --ignore-scripts
-      - run: pnpm update -r hono ws tmp source-map-js brace-expansion fast-uri --lockfile-only --ignore-scripts
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: reviewed-security-lock
-          path: pnpm-lock.yaml
-          retention-days: 3
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - run: pnpm trust:smoke
