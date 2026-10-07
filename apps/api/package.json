@@ -11,7 +11,7 @@
   "dependencies": {
     "@hono/node-server": "^1.14.1",
     "@sapiensq/core": "workspace:*",
-    "hono": "^4.7.5",
+    "hono": "^4.13.13",
     "ethers": "6.16.0",
     "ganache": "7.9.2",
     "solc": "0.8.30"

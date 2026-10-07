@@ -131,7 +131,7 @@ function verifyEnvelope(
   for (const role of roles) {
     const signature = envelope.signatures.find((item) => item.role === role);
     const binding = bindingByRole(authorities, role);
-    /* v8 ignore next 3 -- required roles are already checked on the manifest */
+    /* v8 ignore if -- @preserve required roles are already checked on the manifest */
     if (!binding) {
       return failure("UNKNOWN_KEY", `${path}/signatures`, `missing ${role} binding`);
     }
@@ -370,7 +370,7 @@ function verifyProofSemantics(proof: ClosureProof, trustStore: TrustStore): Clos
   const trust = verifyTrustAndPins(body, proof, trustStore, extraPinned, SUCCESS_ENVELOPE_ROLES);
   if (trust) return trust;
 
-  /* v8 ignore next 7 -- schema already requires exactly one consumption record */
+  /* v8 ignore if -- @preserve schema already requires exactly one consumption record */
   if (body.consumption_records.length !== 1) {
     return failure(
       "CONSUMPTION_CARDINALITY_INVALID",

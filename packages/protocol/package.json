@@ -1,7 +1,7 @@
 {
   "name": "@execution-closure/protocol",
   "version": "0.1.0",
-  "description": "Offline types, RFC 8785 canonicalize, and CLI for Execution Closure proofs. Synthetic sandbox only — not a bank.",
+  "description": "Offline types, RFC 8785 canonicalize, and CLI for Execution Closure proofs. Synthetic sandbox only \u2014 not a bank.",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -46,14 +46,14 @@
     "packed-test": "node scripts/packed-package-test.mjs"
   },
   "dependencies": {
-    "ajv": "8.17.1",
+    "ajv": "8.18.0",
     "canonicalize": "4.0.0",
     "tsx": "^4.19.3"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
-    "@vitest/coverage-v8": "^3.0.8",
+    "@vitest/coverage-v8": "4.1.11",
     "typescript": "^5.8.2",
-    "vitest": "^3.0.8"
+    "vitest": "4.1.11"
   }
 }
