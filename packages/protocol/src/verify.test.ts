@@ -54,6 +54,18 @@ describe("closure proof verifier", () => {
     expect(verifyClosureProof({}, fixture.trust_store).code).toBe("PROOF_SCHEMA_INVALID");
   });
 
+  it.each([0, 2])("rejects a success proof with %i consumption records at the schema boundary", (count) => {
+    const fixture = createSyntheticClosureFixture();
+    const proof = clone(fixture.proof);
+    proof.body.consumption_records = Array.from(
+      { length: count }, () => clone(fixture.proof.body.consumption_records[0]!),
+    );
+    expect(verifyClosureProof(proof, fixture.trust_store)).toMatchObject({
+      valid: false,
+      code: "PROOF_SCHEMA_INVALID",
+    });
+  });
+
   it("rejects an untrusted root", () => {
     const fixture = createSyntheticClosureFixture();
     const store = clone(fixture.trust_store);
